@@ -446,10 +446,6 @@ html {
     height: calc(202/393 * 100vw);
 }
 
-.section3 .first_div .inner1>div:nth-child(1)>div:not(:nth-child(1)) p {
-    margin: 16px;
-}
-
 .section3>.display_flex:nth-child(2) {
     background: #1C83CF33;
     padding: 50px 20px;
