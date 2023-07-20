@@ -347,7 +347,6 @@
     .loginsection .form .display_flex_col {
         background: rgba(255, 255, 255, 0.9);
         box-shadow: 0px 0px 20px 0px #0068B01A;
-        ;
         height: 360px;
         border-radius: 20px;
     }
@@ -360,6 +359,9 @@
 
     .loginsection>.display_flex_col>div img:nth-child(3) {
         display: none;
+    }
+    .loginsection>.display_flex_col .display_flex {
+        /* padding: 0 40px 20px 160px; */
     }
 
     .contactDiv {
