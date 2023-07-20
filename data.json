@@ -1,0 +1,87 @@
+[
+    {
+        "ques":"Q1. How many goals are there in the Sustainable Development Goals?",
+        "option1":"23",
+        "option2":"17",
+        "option3":"9",
+        "ans":"1"
+    },
+    {
+        "ques":"Q2. How many associated targets are there for all the SDGs?",
+        "option1":"129",
+        "option2":"169",
+        "option3":"189",
+        "ans":"1"
+
+    },
+    {
+        "ques":"Q3. When did SDGs come into force?",
+        "option1":"2015",
+        "option2":"2016",
+        "option3":"2017",
+        "ans":"1"
+
+    },
+    {
+        "ques":"Q4. What are the 5 Pillars/ 5Ps of SDGs?",
+        "option1":"People, Prosperity, Planet, Peace, and Partnership",
+        "option2":"Police, Public, Partnership, Peace, and Prosperity",
+        "option3":"Public, Private, Partnership, Peace, and Prosperity",
+        "ans":"0"
+
+    },
+    {
+        "ques":"Q5. What is the motto of the SDGs?",
+        "option1":"For Every Child",
+        "option2":"Leave No One Behind",
+        "option3":"Empowered Lives, Resilient Nations",
+        "ans":"1"
+
+    },
+    {
+        "ques":"Q6. Which is the Nodal Department for coordinating the implementation of the SDGs in Nagaland?",
+        "option1":"Planning & Transformation Department",
+        "option2":"Department of Economics & Statistics",
+        "option3":"Finance Department",
+        "ans":"0"
+
+    },
+    {
+        "ques":"Q7. Which is the dedicated centre under the Nodal Department for coordinating all SDG-related activities?",
+        "option1":"SDG Coordination Centre",
+        "option2":"Monitoring Centre",
+        "option3":"SDG Cell",
+        "ans":"0"
+
+    },
+    {
+        "ques":"Q8. The Government of Nagaland has banned single-use plastic, which SDG it is contributing?",
+        "option1":"SDG 2",
+        "option2":"SDG 9",
+        "option3":"SDG 13",
+        "ans":"2"
+
+    },
+    {
+        "ques":"Q9. If you are engaging in a tree-plantation drive in your local community, you are contributing to which SDG?",
+        "option1":"SDG 4",
+        "option2":"SDG 8",
+        "option3":"SDG 15",
+        "ans":"2"
+
+    },
+    {
+        "ques":"Q10. What is the key focus area of SDG 17?",
+        "option1":"No Poverty",
+        "option2":"Recuced Inequalities",
+        "option3":"Partnership for the Goals",
+        "ans":"2"
+
+    },
+    {
+        "ques":"",
+        "option1":"",
+        "option2":"",
+        "option3":""
+    }
+]
