@@ -219,6 +219,10 @@ html {
 .desk-search input {
     width: 0%;
 }
+.desk-search input::placeholder {
+    font-size: 18px;
+    font-family: 'Proxima Nova';
+}
 
 .desk-search.activate input {
     width: 55%;
