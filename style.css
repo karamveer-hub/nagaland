@@ -142,7 +142,7 @@ html {
 
 .mob-menu ul li:nth-child(1).activate svg {
     position: absolute;
-    left: 96%;
+    left: 93%;
 }
 
 .mob-menu ul li:nth-child(1) img:nth-child(3) {
