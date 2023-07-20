@@ -515,15 +515,18 @@
     }
 
 
+    
+    .section3 .first_div .inner1>div:nth-child(2)>div .slimThumbnail .slimThumbnail {
+        margin: 16px !important;
+        margin-block: auto;
+    }
     .section3 .first_div .inner1>div:nth-child(2).activate>div .slimThumbnail {
         margin: 24px;
         max-width: 293px;
         height: unset;
     }
-
-    .section3 .first_div .inner1>div:nth-child(2)>div .slimThumbnail .slimThumbnail {
-        /* margin: 16px !important; */
-        margin-block: auto;
+    .section3 .first_div .inner1>div:nth-child(2).activate>div .slimThumbnail .slimThumbnail {
+        margin: 0 !important;
     }
     .rotate{
         animation : rotateSDG 1s linear  forwards;
