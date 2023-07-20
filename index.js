@@ -135,10 +135,10 @@ viewMoreHomeBtn.forEach(btn => {
 
 
 
-let deskSearch = document.querySelector(".desk-search")
-deskSearch.addEventListener("keyup", (e) => {
-    console.log(e.keyCode)
+// let deskSearch = document.querySelector(".desk-search")
+// deskSearch.addEventListener("keyup", (e) => {
+//     console.log(e.keyCode)
 
-})
+// })
 
 
