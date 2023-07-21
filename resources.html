@@ -963,18 +963,15 @@
 
     <script>
         let search = document.querySelector(".desk-search input")
-        // let searchDisplay = document.querySelector(".searchDisplay")
         let pdfs = document.querySelectorAll(".pdfSearch")
         let resourcesPage = document.querySelector(".resourcesPage")
         let hideWhileSearch = document.querySelector(".hideWhileSearch")
-        // let eventsDiv = document.querySelector(".eventsDiv")
         let about = document.querySelector(".about")
         let AddresourcesPage= document.createElement("div")
         // let event = document.querySelector(".about")
         let eventsDiv= document.createElement("div")
                AddresourcesPage.classList.add('resourcesPage', 'aboutSection1');
         search.addEventListener("input", () => {
-            // console.log(search.value)
             let string = " "
             if (search.value != "") {
                 hideWhileSearch.style.display="none"
