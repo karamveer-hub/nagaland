@@ -1,5 +1,5 @@
   //searching code for home page as styling code of pdf files here are different 
-  let search = document.querySelector(".desk-search input")
+  let search = document.querySelector(".allSearch")
   let pdfs = document.querySelectorAll(".pdfSearch")
   let mediaSearch = document.querySelectorAll(".mediaSearch")
   let resourcesPage = document.querySelector(".resourcesPage")
@@ -111,6 +111,7 @@
           else {
               for (let i = 0; i < wrapper.length; i++) {
                   wrapper[i].style.display = "block"
+                  wrapper[0].style.display = "flex"
                   wrapper[1].style.display = "none"
               }
           }

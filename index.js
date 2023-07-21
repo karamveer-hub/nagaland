@@ -30,10 +30,17 @@ mobsearch.addEventListener("click", () => {
 
     searchMobDisplay.children[1].focus()
 })
-searchMobDisplay.addEventListener("click", () => {
-    searchMobDisplay.classList.toggle("activate")
+searchMobDisplay.children[1].addEventListener("click", () => {
+    searchMobDisplay.classList.add("activate")
     if (!searchMobDisplay.classList.contains("activate"))
         searchMobDisplay.children[1].blur()
+})
+searchMobDisplay.children[2].addEventListener("click", () => {
+    searchMobDisplay.classList.remove("activate")
+    searchMobDisplay.children[1].value=""
+    console.log("akjklajks",searchMobDisplay)
+    // if (!searchMobDisplay.classList.contains("activate"))
+    //     searchMobDisplay.children[1].blur()
 })
 searchMobDisplayLi.forEach(item => {
     item.addEventListener("click", (e) => {
