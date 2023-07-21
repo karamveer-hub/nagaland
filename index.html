@@ -16,6 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
         integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   
 </head>
 
 <body>
@@ -185,8 +186,8 @@
                     <li class="font700 desk-search display_flex">
                         <input type="text"
                             style="border: 1px solid rgba(0, 0, 0, 0.107);width: 85%;border-radius: 2px;padding: 8px;"
-                            placeholder="Search media and pdfs">
-                        <img src="images/search.png" alt="" class="allSearch">
+                            placeholder="Search media and pdfs"  class="allSearchDesk">
+                        <img src="images/search.png" alt="" class="search">
                     </li>
                 </div>
                 <img src="images/Rectangle 8.png" alt="">
@@ -997,7 +998,7 @@
         let takeQuiz = document.querySelector("#takeQuiz")
         takeQuiz.addEventListener("click", (e) => {
             quizBox.style.display = "block"
-            section4.children[0].style.display = "none"
+            section4.style.display = "none"
         })
         clickBegin.addEventListener("click", (e) => {
             quizBox.children[0].style.display = "none"
@@ -1007,6 +1008,17 @@
         //getting the datas of user entered in the quiz section
         submitQuizForm.addEventListener("submit", (event) => {
             event.preventDefault()
+            $.ajax({
+        url:'https://docs.google.com/spreadsheets/d/1JOyx4PSWpLfOH_a4Zrf2iUy80SR0Zo7Ys8__-DrK9nw/edit#gid=0',
+        type:'post',
+        data:$("#submitQuizForm").serializeArray(),
+        success: function(){
+            alert("Form Data Submitted :)")
+        },
+        error: function(){
+            alert("There was an error :(")
+        }
+    });
             let quizUserNameInput = document.querySelector("#quizUserName")
             let quizUserEmailInput = document.querySelector("#quizUserEmail")
             let quizUserName = quizUserNameInput.value
@@ -1025,7 +1037,13 @@
 
         //searching code for home page as styling code of pdf files here are different 
       
-    </script>
+
+
+       
+        function SubForm (){
+       
+}
+</script>
 
     <script src="search.js"></script>
 
