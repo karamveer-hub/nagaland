@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <section class="wrapper">
+    <section class="wrapper searchElementContainer">
         <div class="mob-menu display_flex">
             <!-- <img src="images/Menu button.png" alt="" id="burger"> -->
             <div id="burger">
@@ -295,7 +295,7 @@
               
             </div>
         </div> -->
-        <div class=" container">
+        <div class=" container ">
             <div class="aboutSection1 ">
                 <div class="display_flex_col ">
                     <h2 class="fontLora">Gallery</h2>
@@ -304,24 +304,31 @@
 
                         <p class="font700">Video Gallery</p>
                     </div>
-                    <div class="display_flex_col gallery">
+                    <div class="display_flex_col gallery ">
                         <div class="display_flex ">
-                            <div>
-                                <video src="videos/NagalandSDGVision2030(Main video).mp4" controls></video>
-                                <p class="textBlue font700">Nagaland SDG Vision 2030 (promo video)</p>
+                            <div class="display_flex_col mediaSearch" style="position: relative;">
+                                <video src="videos//NagalandSDGVision2030(Main video).mp4" controls alt=""></video>
+                                <div class="display_flex ">
+                                    <img src="images/videoIcon.svg" alt="Video Icon" class="videoPdfIcon">
 
+                                    <p class="textBlue font700">Nagaland SDG Vision 2030 (promo video)</p>
+                                </div>
                             </div>
-                            <div>
-            
-                                <video src="videos/NagalandSDGVision2030(Main video)_1.mp4" controls></video>
-                                <p class="textBlue font700">Nagaland SDG Theme Song</p>
+                            <div class="display_flex_col mediaSearch" style="position: relative;">
 
+                                <video src="videos/NagalandSDGVision2030theme_song.mp4" controls alt=""></video>
+                                <div class="display_flex ">
+                                    <img src="images/videoIcon.svg" alt="Video Icon" class="videoPdfIcon">
+
+                                    <p class="textBlue font700">Nagaland SDG Theme Song</p>
+                                </div>
                             </div>
-                            <div>
-            
-                                <video src="videos/NagalandSDGVision2030theme_song.mp4" controls></video>
-                                <p class="textBlue font700">Nagaland SDG Vision 2030 (main video)</p>
-
+                            <div class="display_flex_col mediaSearch" style="position: relative;">
+                                <video src="videos/NagalandSDGVision2030(Main video)_1.mp4" controls alt=""></video>
+                                <div class="display_flex ">
+                                    <img src="images/videoIcon.svg" alt="Video Icon" class="videoPdfIcon">
+                                    <p class="textBlue font700">Nagaland SDG Vision 2030 (main video)</p>
+                                </div>
                             </div>
                         </div>
                      
@@ -435,10 +442,11 @@ options
 
 
 )
-document.querySelectorAll(".gallery .display_flex > div").forEach(card=>observer.observe(card))
+document.querySelectorAll(".gallery .mediaSearch").forEach(card=>observer.observe(card))
 
     </script>
     <script src="index.js"></script>
+    <script src="search.js"></script>
 
 </body>
 

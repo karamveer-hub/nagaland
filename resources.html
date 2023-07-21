@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <section class="wrapper">
+    <section class="wrapper searchElementContainer">
         <div class="mob-menu display_flex">
             <!-- <img src="images/Menu button.png" alt="" id="burger"> -->
             <div id="burger">
@@ -181,7 +181,8 @@
                 <div>
                     <li class="font700 desk-search display_flex">
                         <input type="text"
-                            style="border: 1px solid rgba(0, 0, 0, 0.107);width: 85%;border-radius: 2px;padding: 8px;" placeholder="Search media and pdfs" >
+                            style="border: 1px solid rgba(0, 0, 0, 0.107);width: 85%;border-radius: 2px;padding: 8px;"
+                            placeholder="Search media and pdfs">
                         <img src="images/search.png" alt="" class="search">
                     </li>
                 </div>
@@ -308,12 +309,12 @@
                 </div>
             </nav>
         </div>
-        <div class="about container">
-            <div class="aboutSection1 resourcesPage hideWhileSearch">
+        <div class="about container ">
+            <div class="aboutSection1 resourcesPage ">
                 <div class="display_flex_col eventsDiv resourcesDiv ">
                     <h2 class="fontLora">Resources</h2>
-                    <p style="text-align: center;">Click on the pdf Icons below to download them</p>
                     <img src="images/Underline1.png" alt="Colored Underline" class="underline">
+                    <p style="text-align: center;">Click on the pdf Icons below to download them</p>
                     <div class="display_flex" id="publications">
 
                         <p class="font700">Publications</p>
@@ -960,79 +961,8 @@
         </div>
     </footer>
     <script src="index.js"></script>
+    <script src="search.js"></script>
 
-    <script>
-        let search = document.querySelector(".desk-search input")
-        let pdfs = document.querySelectorAll(".pdfSearch")
-        let resourcesPage = document.querySelector(".resourcesPage")
-        let hideWhileSearch = document.querySelector(".hideWhileSearch")
-        let about = document.querySelector(".about")
-        let AddresourcesPage= document.createElement("div")
-        // let event = document.querySelector(".about")
-        let eventsDiv= document.createElement("div")
-               AddresourcesPage.classList.add('resourcesPage', 'aboutSection1');
-        search.addEventListener("input", () => {
-            let string = " "
-            if (search.value != "") {
-                hideWhileSearch.style.display="none"
-                Array.from(pdfs).forEach(pdf => {
-                    if (pdf.children[1].children[1].innerText.toLowerCase().includes(search.value)) {
-                        console.log(pdf)
-                        string += `<div class="pdfSearch">
-                                <img src="${pdf.children[0].src}" alt="">
-                                <div class="display_flex">
-                                    <a
-                                    href="${pdf.children[1].children[0].href}"><img
-                                    src="images/pdfIcon.svg" alt=""></a>
-                                    <p class="textBlue font700">${pdf.children[1].children[1].innerText}</p>
-                                    </div>
-                                    </div>`
-                    }
-
-                    else {
-                        // string="No Result Found"
-                        // about.removeChild(AddresourcesPage)
-              
-                    }
-                    eventsDiv.classList.add("eventsDiv")
-                    eventsDiv.innerHTML = `  <h2 class="fontLora">Resources</h2>
-                    <p style="text-align: center;">Click on the pdf Icons below to download them</p>
-                    <img src="images/Underline1.png" alt="Colored Underline" class="underline">
-                    <div class="display_flex" id="publications">
-
-                        <p class="font700">Publications</p>
-                    </div>
-                    <div class="display_flex_col ">
-                        <div class="display_flex viewMoreDiv searchDisplay">
-                                ${string}
-
-
-                                </div>
-                                </div>
-                                `
-
-                    AddresourcesPage.appendChild(eventsDiv)
-                    about.appendChild(AddresourcesPage)
-                }
-
-
-                )
-            }
-
-
-            else{
-                hideWhileSearch.style.display="block"
-            }
-
-            // div.className="display_flex"
-            // div.inn
-            // eventsDiv.appendChild(div)
-        }
-
-
-
-        )
-    </script>
 </body>
 
 </html>

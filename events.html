@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <section class="wrapper">
+    <section class="wrapper searchElementContainer">
         <div class="mob-menu display_flex">
             <!-- <img src="images/Menu button.png" alt="" id="burger"> -->
             <div id="burger">
@@ -307,7 +307,7 @@
                 </div>
             </nav>
         </div>
-        <div class="display_flex_col upcomingEventsDiv container aboutSection1" id="upcomingEvents">
+        <div class="display_flex_col upcomingEventsDiv container aboutSection1 hideWhileSearch" id="upcomingEvents">
             <h2 class="fontLora">Upcoming Events 2023</h2>
             <img src="images/Underline1.png" alt="Colored Underline" class="underline">
             <div class="display_flex">
@@ -332,8 +332,8 @@
                 </div>
             </div>
         </div>
-        <div class="about container">
-            <div class="aboutSection1 eventsPage">
+        <div class="about container searchElementContainer">
+            <div class="aboutSection1 eventsPage hideWhileSearch">
 
                 <div class="display_flex_col eventsDiv resourcesDiv" id="pastEvents">
                     <h2 class="fontLora">Past Events</h2>
@@ -344,7 +344,7 @@
 
 
                         <div class="display_flex viewMoreDiv">
-                            <div>
+                            <div class="pdfSearch">
                                 <img src="images/events (9).svg" alt="">
                                 <div class="display_flex">
                                     <a href="pdfs/pastEvents/District-levelWorkshops2021.pdf" download><img
@@ -352,7 +352,7 @@
                                     <p class="textBlue font700">District Level Workshops 2021</p>
                                 </div>
                             </div>
-                            <div>
+                            <div class="pdfSearch">
                                 <img src="images/events (8).svg" alt="">
                                 <div class="display_flex">
                                     <a href="pdfs/pastEvents/InnovatorsMeet2023.pdf" download> <img
@@ -360,7 +360,7 @@
                                     <p class="textBlue font700">Innovators Meet 2023</p>
                                 </div>
                             </div>
-                            <div>
+                            <div class="pdfSearch">
                                 <img src="images/events (7).svg" alt="">
                                 <div class="display_flex">
                                     <a href="pdfs/pastEvents/LaunchingProgrammes.pdf" download><img
@@ -368,7 +368,7 @@
                                     <p class="textBlue font700">Launching Programs</p>
                                 </div>
                             </div>
-                            <div>
+                            <div class="pdfSearch">
                                 <img src="images/events (3).svg" alt="">
                                 <div class="display_flex">
                                     <a href="pdfs/pastEvents/StakeholdersMeet2022.pdf" download><img
@@ -376,7 +376,7 @@
                                     <p class="textBlue font700">Stakeholders Meet 2022</p>
                                 </div>
                             </div>
-                            <div>
+                            <div class="pdfSearch">
                                 <img src="images/events (2).svg" alt="">
                                 <div class="display_flex">
                                     <a href="pdfs/pastEvents/State-levelWorkshop2018.pdf" download> <img
@@ -384,7 +384,7 @@
                                     <p class="textBlue font700">State Level Workshop 2018 </p>
                                 </div>
                             </div>
-                            <div>
+                            <div class="pdfSearch">
                                 <img src="images/events (1).svg" alt="">
                                 <div class="display_flex">
                                     <a href="pdfs/pastEvents/State-levelWorkshop2022.pdf" download><img
@@ -392,7 +392,7 @@
                                     <p class="textBlue font700">State Level Workshop 2022</p>
                                 </div>
                             </div>
-                            <div>
+                            <div class="pdfSearch">
                                 <img src="images/events.png" alt="">
                                 <div class="display_flex">
                                     <a href="pdfs/pastEvents/YoungLeadersTrainingonSDGs.pdf" download><img
@@ -471,6 +471,7 @@
         </div>
     </footer>
     <script src="index.js"></script>
+    <script src="search.js"></script>
 
 </body>
 

@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <section class="wrapper">
+    <section class="wrapper searchElementContainer">
         <div class="mob-menu display_flex">
             <div id="burger">
                 <div class="burger-bar"></div>
@@ -306,18 +306,16 @@
                 </div>
             </nav>
         </div>
-        <div class="about container">
-            <div class="aboutSection1 KeyPage">
-
-
-                <div class="display_flex_col eventsDiv keyDiv">
+        <div class="about container searchElementContainer">
+            <div class="aboutSection1 KeyPage hideWhileSearch">
+                <div class="display_flex_col eventsDiv keyDiv ">
                     <h2 class="fontLora">Key Initiatives</h2>
                     <img src="images/Underline1.png" alt="Colored Underline" class="underline">
                     <p style="text-align: center;">Click on the pdf Icons below to download them</p>
 
                     <div class="display_flex_col">
                         <div class="display_flex viewMoreDiv">
-                            <div>
+                            <div class="pdfSearch">
 
                                 <img src="images/keyInitiative (2).svg" alt="">
                                 <div class="display_flex">
@@ -326,7 +324,7 @@
                                     <p class="textBlue font700">Green Christmas Campaign</p>
                                 </div>
                             </div>
-                            <div>
+                            <div class="pdfSearch">
                                 <img src="images/keyInitiative (3).svg" alt="">
                                 <div class="display_flex">
                                     <a href="pdfs/keyInitiatives/IPAR1.0OutcomeReport(2).pdf" download> <img
@@ -334,7 +332,7 @@
                                     <p class="textBlue font700">IPAR 1.0 Outcome Report</p>
                                 </div>
                             </div>
-                            <div>
+                            <div class="pdfSearch">
                                 <img src="images/keyInitiative (1).svg" alt="">
                                 <div class="display_flex">
                                     <a href="pdfs/keyInitiatives/SDGatHornbillFestival2022_OutcomeReport.pdf"
@@ -413,7 +411,9 @@
         </div>
     </footer>
     <script src="index.js"></script>
+    <script src="search.js"></script>
 
+</script>
 </body>
 
 </html>
