@@ -60,7 +60,7 @@
         display: block;
     }
 
-    .desktop-menu>.display_flex img:not(.search) {
+    .desktop-menu>.display_flex img:not(.allSearch) {
         width: 60px;
     }
 
@@ -577,7 +577,7 @@
         padding: 20px 4px;
     }
 
-    .desktop-menu>.display_flex img:not(.search) {
+    .desktop-menu>.display_flex img:not(.allSearch) {
         width: 80px;
     }
 
