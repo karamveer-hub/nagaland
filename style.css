@@ -657,7 +657,7 @@ html {
     width: 100%;
 }
 
-.eventsDiv .display_flex_col .display_flex {
+.eventsDiv .display_flex_col > .display_flex {
     align-items: center;
     justify-content: center;
 }
@@ -717,6 +717,7 @@ html {
     background: white;
     position: absolute;
     right: 0px;
+    box-shadow: -2px 0px 3px 0px rgb(161 161 161 / 41%);
 }
 #emailBox input {
     padding: 10px;color: white;
@@ -1118,7 +1119,13 @@ html {
     }
 }
 
-.gallery .display_flex {
+.gallery{
+    width: 100%;
+}
+.gallery p{
+    width: 80%;
+}
+.gallery > .display_flex {
     justify-content: center;
 }
 

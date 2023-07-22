@@ -172,7 +172,7 @@
 
     .section3 .inner2 p,
     .section3 .inner2 h2 {
-        font-size: 18px;
+        font-size: 24px;
     }
 
     .section3 .inner2 {
@@ -301,7 +301,7 @@
     .upcomingEventsDiv .display_flex div:nth-child(2) {
         width: 36%;
         background: var(--blue);
-        padding: 20px;
+        padding: 20px;margin: unset;
     }
     #emailBox input {
         padding: 10px 30px;
