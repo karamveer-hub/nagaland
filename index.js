@@ -26,7 +26,7 @@ burgerIcon.addEventListener("click", () => {
 mobsearch.addEventListener("click", () => {
     mobMenu.classList.toggle("show")
     burgerIcon.classList.toggle("activate")
-    searchMobDisplay.classList.toggle("activate")
+    searchMobDisplay.classList.add("activate")
 
     searchMobDisplay.children[1].focus()
 })
