@@ -732,7 +732,7 @@
                     <p style="text-align: left;" class="w-100">Fill in this form to reveal your score!</p>
                     <div class="display_flex">
                       
-                        <form id="myForm" class="display_flex">
+                        <form id="myForm" class="display_flex" action="email.php" method="post">
                             <div class="display_flex_col">
 
                             <label for="quizUserName" style="margin: 5px 0;">Your Name</label>
@@ -748,6 +748,8 @@
                             <br/>
                             <input name="email" id="quizUserEmail" autocomplete="off" autocapitalize="on" required
                             style="border: 1px solid black;border-radius:5px"/>
+                            <div class="errorMessage" style="font-size: 12px;color: red;bottom: -10px;position: relative;"></div>
+
                             <br/>
                         </div>
                             
@@ -1013,27 +1015,52 @@
         })
 
         //getting the datas of user entered in the quiz section
+        const emailError = document.querySelector('#quizUserEmail + .errorMessage');
+        const emailInput = document.getElementById('quizUserEmail');
         submitQuizForm.addEventListener("submit", (event) => {
+
+
+            // const form = document.querySelector(".form")
+        // function submitData(event) {
+            const email = document.querySelector("#quizUserEmail").value.trim();
             event.preventDefault()
-            $.ajax({
+            if (email === '') {
+                emailError.textContent = 'Email is required.';
+                emailInput.parentNode.classList.add('error');
+
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                emailError.textContent = 'Please enter a valid email address.';
+                emailInput.parentNode.classList.add('error');
+
+            } else {
+                emailError.textContent = '';
+
+                $.ajax({
                 url: 'https://api.apispreadsheets.com/data/W354dakyRBkcmgrz/',
                 type: 'post',
                 data: $("#myForm").serializeArray(),
                 success: function () {
-                    alert("Form Data Submitted :)")
+                    alert("Form Data Submitted")
                 },
                 error: function () {
-                    alert("There was an error :(")
+                    alert("There was an error(")
                 }
             });
-            let quizUserNameInput = document.querySelector("#quizUserName")
-            let quizUserEmailInput = document.querySelector("#quizUserEmail")
-            let quizUserName = quizUserNameInput.value
-            let quizUserEmail = quizUserEmailInput.value
-            quizQuestionsDisplay.style.display = "none"
-            congratulationDiv.style.display = "none"
-            scoreDiv.children[0].children[0].innerHTML = `<span>${quizUserName}</span> has scored <span>${score}%</span> in the quiz 'Test Your Knowledge of SDGs and Nagaland' <a href="https://www.undp.org/sustainable-development-goals" target="_blank" style="color:#0468B1;">read here</a>`
-            scoreDiv.style.display = "flex"
+                emailInput.parentNode.classList.remove('error');
+                
+                let quizUserNameInput = document.querySelector("#quizUserName")
+                let quizUserEmailInput = document.querySelector("#quizUserEmail")
+                let quizUserName = quizUserNameInput.value
+                let quizUserEmail = quizUserEmailInput.value
+                quizQuestionsDisplay.style.display = "none"
+                congratulationDiv.style.display = "none"
+                scoreDiv.children[0].children[0].innerHTML = `<span>${quizUserName}</span> has scored <span>${score}%</span> in the quiz 'Test Your Knowledge of SDGs and Nagaland' <a href="https://www.undp.org/sustainable-development-goals" target="_blank" style="color:#0468B1;">read here</a>`
+                scoreDiv.style.display = "flex"
+            }
+
+
+
+        // }
         })
 
         // whats new hover effect of #div2
