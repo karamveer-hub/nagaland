@@ -588,7 +588,7 @@ html {
 .footer .second_div .display_flex_col:nth-child(2) {
     align-items: flex-end;
     justify-content: space-between;
-    margin-top: 50px;
+    margin-top: 50px;height: 69%;
 }
 
 .footer .second_div .display_flex_col:nth-child(2) .display_flex_col:nth-child(2) {
