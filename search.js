@@ -162,7 +162,7 @@ searchDesk.addEventListener("input", (e) => {
         console.log("else mai aay")
     searchElementContainer.removeChild(addSearchElementsParent)
 
-        if (window.matchMedia("(min-width: 1000px)").matches) {
+        if (window.matchMedia("screen and (min-width: 1000px)").matches) {
             for (let i = 0; i < wrapper.length; i++) {
                 // wrapper[i].style.display = "block"
                 wrapper[i].classList.contains("quizBox")? wrapper[i].style.display = "none" : wrapper[i].style.display = "block"
