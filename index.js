@@ -11,7 +11,7 @@ $('.slider ').slick({
     nextArrow: "<img class=' slick-next' src='images/next.png'>",
 
 });
-
+// import searchFunctionality from './search'
 let burgerIcon = document.querySelector("#burger")
 let mobsearch = document.querySelector(".mob-header-search")
 let mobMenu = document.querySelector(".mob-menu-display")
@@ -35,13 +35,7 @@ searchMobDisplay.children[1].addEventListener("click", () => {
     if (!searchMobDisplay.classList.contains("activate"))
         searchMobDisplay.children[1].blur()
 })
-searchMobDisplay.children[2].addEventListener("click", () => {
-    searchMobDisplay.classList.remove("activate")
-    searchMobDisplay.children[1].value=""
-    console.log("akjklajks",searchMobDisplay)
-    // if (!searchMobDisplay.classList.contains("activate"))
-    //     searchMobDisplay.children[1].blur()
-})
+
 searchMobDisplayLi.forEach(item => {
     item.addEventListener("click", (e) => {
 

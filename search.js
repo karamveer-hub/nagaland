@@ -10,7 +10,17 @@ let searchElementContainer = document.querySelector(".searchElementContainer")
 let addSearchElementsParent = document.createElement("div")
 let eventsDiv = document.createElement("div")
 let galleryDiv = document.createElement("div")
+let searchMobDisplayCallingFunction = document.querySelector(".mob-menu-display #searchMobDisplay") //this is here to calling the search funtoi aagain after making the input empty in mobile view
 
+
+searchMobDisplayCallingFunction.children[2].addEventListener("click", () => {
+    searchMobDisplay.classList.remove("activate")
+    searchMobDisplay.children[1].value=""
+    console.log("akjklajks",searchMobDisplay)
+    searchFunctionality("")
+    // if (!searchMobDisplay.classList.contains("activate"))
+    //     searchMobDisplay.children[1].blur()
+})
 search.addEventListener("input", (e) => {
     searchFunctionality(e.currentTarget.value)
 })
@@ -21,7 +31,7 @@ searchDesk.addEventListener("input", (e) => {
 })
   
 
-function searchFunctionality(bothSearch){
+ function searchFunctionality(bothSearch){
      console.log(bothSearch)
     for (let i = 2; i < wrapper.length; i++) {
         wrapper[i].style.display = "none"
@@ -52,8 +62,8 @@ function searchFunctionality(bothSearch){
       <div class="aboutSection1">
           <div class="display_flex_col eventsDiv resourcesDiv ">
               <h2 class="fontLora">Pdf's</h2>
-              <p style="text-align: center;padding:20px 0;">Click on the pdf Icons below to download them</p>
               <img src="images/Underline1.png" alt="Colored Underline" class="underline">
+              <p style="text-align: center;padding:20px 0;">Click on the pdf Icons below to download them</p>
               <div class="display_flex" id="publications">
                   <p class="font700">Searched Pdfs</p>
               </div>
@@ -66,8 +76,26 @@ function searchFunctionality(bothSearch){
                   </div>
                   </div>
                   `
-                  addSearchElementsParent.appendChild(eventsDiv)
                 })
+                if(string!=" ") 
+                addSearchElementsParent.appendChild(eventsDiv)
+                else {eventsDiv.innerHTML=` <div class="about container ">
+                <div class="aboutSection1">
+                    <div class="display_flex_col eventsDiv resourcesDiv ">
+                        <h2 class="fontLora">Pdf's</h2>
+                        <img src="images/Underline1.png" alt="Colored Underline" class="underline">
+                        <div class="display_flex" id="publications">
+                            <p class="font700">Searched Pdfs</p>
+                        </div>
+                        <div class="display_flex_col ">
+                            <div class="display_flex viewMoreDiv searchDisplay">
+                            <h2> No Result Found </h2>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            </div>`}
+
             }
              if(mediaSearch.length!=0){
                 Array.from(mediaSearch).forEach(media => {
@@ -102,8 +130,26 @@ function searchFunctionality(bothSearch){
                   </div>
                   </div>
                   `
-                  addSearchElementsParent.appendChild(galleryDiv)
-        })
+                })
+                if(string2!=" ")
+                addSearchElementsParent.appendChild(galleryDiv)
+                else  galleryDiv.innerHTML = ` <div class=" container ">
+                <div class="aboutSection1 ">
+                    <div class="display_flex_col ">
+                        <h2 class="fontLora">Media's</h2>
+                        <img src="images/Underline1.png" alt="Colored Underline" class="underline">
+                        <div class="display_flex">
+                        
+                            <p class="font700">Searched Media</p>
+                            </div>
+                            <div class="display_flex_col gallery ">
+                            <div class="display_flex ">
+                          <h2> No Result Found </h2>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            `
     }
     // else{
         
@@ -118,17 +164,21 @@ function searchFunctionality(bothSearch){
 
         if (window.matchMedia("(min-width: 1000px)").matches) {
             for (let i = 0; i < wrapper.length; i++) {
-                wrapper[i].style.display = "block"
+                // wrapper[i].style.display = "block"
+                wrapper[i].classList.contains("quizBox")? wrapper[i].style.display = "none" : wrapper[i].style.display = "block"
                 console.log("askakdk aagyagygayga")
                 wrapper[0].style.display = "none"
+
                 // wrapper[wrapper.length-1].style.display="block"
             }
         }
         else {
             for (let i = 0; i < wrapper.length; i++) {
-                wrapper[i].style.display = "block"
+                wrapper[i].classList.contains("quizBox")? wrapper[i].style.display = "none": wrapper[i].style.display = "block"
+                
                 wrapper[0].style.display = "flex"
                 wrapper[1].style.display = "none"
+
             }
         }
     }

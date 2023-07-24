@@ -162,7 +162,7 @@ html {
 .mob-menu ul li:nth-child(1) input {
     font-size: 20px;
     width: 65%;
-    margin: 0 auto;
+    margin: 0 auto;font-weight: normal;
 }
 
 .mob-menu ul li:nth-child(1).activate input {
@@ -172,6 +172,9 @@ html {
 .mob-menu ul li:nth-child(1) input::placeholder {
     color: var(--blue);
     font-family: 'Proxima Nova';
+    font-size: 14px;
+    font-weight: normal;
+    color: rgb(49, 49, 49);
 }
 
 .mob-menu ul li:nth-child(1).activate input::placeholder {
