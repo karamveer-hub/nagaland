@@ -74,8 +74,8 @@ let viewMoreHomeBtn = document.querySelectorAll('.viewAllHomeBtn')
 let viewMoreDiv = document.querySelectorAll('.viewMoreDiv')
 let viewMoreHomeDiv = document.querySelector('.inner1 > div')
 
-let nextView = 1;
-if (window.matchMedia("(max-width: 1000px)").matches) {
+let nextView = 2;
+if (window.matchMedia("screen and (max-width: 1000px)").matches) {
     
         viewMoreDiv.forEach(div => {
             if(div.children.length==2){
@@ -95,17 +95,31 @@ if (window.matchMedia("(max-width: 1000px)").matches) {
 
 viewMoreBtn.forEach(btn => {
     btn.addEventListener("click", () => {
-    //    nextView==btn.previousElementSibling.children.length?btn.innerText="View Less":"View More"
         if(nextView < btn.previousElementSibling.children.length){
+            console.log(btn.previousElementSibling.children.length)
             if(nextView==btn.previousElementSibling.children.length-1){
                 nextView+=1;
-                console.log(nextView)
+                console.log(nextView,"true")
 
                 for (let i = 2; i < nextView; i++) {
                     // console.log(nextView, btn.previousElementSibling.children.length, "i")
                     if (btn.previousElementSibling) btn.previousElementSibling.children[i].style.display = "block"
                 }
+       btn.innerText="View Less"
+
             }
+    //         else if(nextView==btn.previousElementSibling.children.length){
+    //             nextView+=1;
+    //             console.log(nextView)
+
+    //             for (let i = 2; i < nextView; i++) {
+    //                 // console.log(nextView, btn.previousElementSibling.children.length, "i")
+    //                 if (btn.previousElementSibling) btn.previousElementSibling.children[i].style.display = "block"
+    //             }
+
+    //    btn.innerText="View Less"
+
+    //         }
             else{
                 nextView+=2;
                 console.log(nextView)
@@ -113,8 +127,13 @@ viewMoreBtn.forEach(btn => {
                     // console.log(nextView, btn.previousElementSibling.children.length, "i")
                     if (btn.previousElementSibling) btn.previousElementSibling.children[i].style.display = "block"
                 }
+                if(nextView==btn.previousElementSibling.children.length){
+       btn.innerText="View Less"
+
+                }
             }
         }
+        
         else if(nextView==btn.previousElementSibling.children.length){
             for (let i = nextView-1; i >= 2; i--) {
                 // console.log(nextView, btn.previousElementSibling.children.length, "i")
@@ -122,6 +141,8 @@ viewMoreBtn.forEach(btn => {
                 
             }
             nextView=2
+       btn.innerText="View More"
+
             // console
             }
     })
