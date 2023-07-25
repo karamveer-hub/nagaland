@@ -1035,23 +1035,51 @@
             } else {
                 emailError.textContent = '';
 
-                $.ajax({
-                url: 'https://api.apispreadsheets.com/data/W354dakyRBkcmgrz/',
-                type: 'post',
-                data: $("#myForm").serializeArray(),
-                success: function () {
-                    alert("Form Data Submitted")
+                // $.ajax({
+                // url: 'https://api.apispreadsheets.com/data/W354dakyRBkcmgrz/',
+                // type: 'post',
+                // data: $("#myForm").serializeArray(),
+                // success: function () {
+                //     alert("Form Data Submitted")
+                // },
+                // error: function () {
+                //     alert("There was an error(")
+                // }
+
+                  // Send the data to the backend server
+                  let quizUserNameInput = document.querySelector("#quizUserName")
+                  let quizUserEmailInput = document.querySelector("#quizUserEmail")
+                  let quizUserName = quizUserNameInput.value
+                  let quizUserEmail = quizUserEmailInput.value
+
+                  const data = {
+                name: quizUserName,
+                email: quizUserEmail
+            };
+
+            fetch('https://resend-api.onrender.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
                 },
-                error: function () {
-                    alert("There was an error(")
-                }
-            });
+                body: JSON.stringify(data)
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(responseData => {
+                    // Handle the response from the server if needed
+                    console.log('Server response:', responseData);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            
                 emailInput.parentNode.classList.remove('error');
                 
-                let quizUserNameInput = document.querySelector("#quizUserName")
-                let quizUserEmailInput = document.querySelector("#quizUserEmail")
-                let quizUserName = quizUserNameInput.value
-                let quizUserEmail = quizUserEmailInput.value
                 quizQuestionsDisplay.style.display = "none"
                 congratulationDiv.style.display = "none"
                 scoreDiv.children[0].children[0].innerHTML = `<span>${quizUserName}</span> has scored <span>${score}%</span> in the quiz 'Test Your Knowledge of SDGs and Nagaland' <a href="https://www.undp.org/sustainable-development-goals" target="_blank" style="color:#0468B1;">read here</a>`
