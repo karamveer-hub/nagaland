@@ -164,7 +164,6 @@ searchDesk.addEventListener("input", (e) => {
         if (window.matchMedia("screen and (min-width: 1000px)").matches) {
             for (let i = 0; i < wrapper.length; i++) {
                 wrapper[i].classList.contains("quizBox")? wrapper[i].style.display = "none" : wrapper[i].style.display = "block"
-                console.log("askakdk aagyagygayga")
                 wrapper[0].style.display = "none"
             }
         }
