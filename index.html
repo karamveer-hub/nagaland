@@ -1105,14 +1105,14 @@
         async function shareScoreFunc() {
             let text = `${quizUserName} has scored ${score}% in the quiz 'Test Your Knowledge of SDGs and Nagaland'`
             let url = `https://karamveer-hub.github.io/nagaland`
-            let files='pdfs/goodPractices/eVIN.pdf'
+            // let files='pdfs/goodPractices/eVIN.pdf'
             if (navigator.share) {
                 try {
                     await navigator.share({
                         text: text,
                         title: "See my Score",
-                        url: url,
-                        files
+                        url: url
+                     
 
                     });
                     console.log('Text shared successfully!');
