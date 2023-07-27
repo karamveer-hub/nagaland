@@ -16,7 +16,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
         integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=64bf9f9b1734a80012bd60bb&product=image-share-buttons&source=platform" async="async"></script> -->
 
 </head>
 
@@ -1106,12 +1105,14 @@
         async function shareScoreFunc() {
             let text = `${quizUserName} has scored ${score}% in the quiz 'Test Your Knowledge of SDGs and Nagaland'`
             let url = `https://karamveer-hub.github.io/nagaland`
+            let files='pdfs/goodPractices/eVIN.pdf'
             if (navigator.share) {
                 try {
                     await navigator.share({
                         text: text,
                         title: "See my Score",
                         url: url,
+                        files
 
                     });
                     console.log('Text shared successfully!');
@@ -1120,7 +1121,7 @@
                 }
             } else {
                 // Fallback for browsers that don't support navigator.share
-                const fallbackUrl = `mailto:?body=${encodeURIComponent(text)}`;
+                const fallbackUrl = `mailto:karamveersachdeva3@gmail.com?body=${encodeURIComponent(text)}`;
                 window.location.href = fallbackUrl;
             }
         }
