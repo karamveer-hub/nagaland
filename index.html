@@ -8,9 +8,6 @@
     <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="responsive.css">
-    <meta property="og:title" content="How to Become an SEO Expert (8 Steps)" />
-<meta property="og:description" content="See My Score I Got in Nagaland SDGs Quiz Test" />
-<meta property="og:image" content="https://github.com/karamveer-hub/nagaland/blob/main/images/1.webp" />
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
@@ -19,6 +16,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
         integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!-- <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=64bf9f9b1734a80012bd60bb&product=image-share-buttons&source=platform" async="async"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.0/fabric.min.js"></script>
 
 </head>
 
@@ -779,9 +778,21 @@
                 <div class="display_flex" style="box-shadow: none;">
                     <button class="btn" id="htmltocanvasConvert" style="max-width: 240px;">Download Your Score</button>
                     <button style="max-width: 240px;" class="btn" id="shareScore">Share Your Score</button>
+<!-- AddToAny BEGIN -->
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+<a class="a2a_button_whatsapp"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_email"></a>
+</div>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END -->
                 </div>
                 <!-- </a> -->
             </div>
+            <!-- <canvas id="canvas" width="400" height="300"></canvas> -->
+
 
         </div>
 
@@ -851,37 +862,70 @@
 
     <script src="index.js"></script>
     <script>
+        let img=document.createElement("img")
+        let base64;
         document.getElementById("htmltocanvasConvert").addEventListener("click", function () {
             html2canvas(document.getElementById("htmltocanvas")).then(function (canvas) {
                 var anchorTag = document.createElement("a");
                 document.body.appendChild(anchorTag);
                 anchorTag.download = "SDGs Quiz Score.jpg";
                 anchorTag.href = canvas.toDataURL();
+                
+                anchorTag.appendChild = canvas.toDataURL();
                 anchorTag.target = '_blank';
                 anchorTag.click();
+
             });
-
-            let title = window.document.title;
-            let url = window.document.location.href;
-            let shareScore = document.querySelector("#shareScore")
-            shareScore.addEventListener("click", () => {
-                if (navigator.share) {
-                    navigator.share({
-                        title: `${title}`,
-                        url: `${url}`
-                    }).then(() => {
-                        console.log('Thanks for sharing')
-                    })
-                        .catch(console.error)
-                }
-                else {
-
-                }
-            })
-
-
+            
+            
+            
         });
+        let title = window.document.title;
+        let url = 'images/1.webp'
+        let shareScore = document.querySelector("#shareScore")
+                // base64 = canvas.toDataURL();
+            //     img.src=base64
+            // })
+           
+            
+    //         const file = `${canvas.toDataURL()}`;
+    //             // console.log(file.split(",")[1])
+    //         const formData = new FormData();
+    //         formData.append('image', base64ToBlob(file.split(",")[1]), 'image.png');
 
+    //   fetch('https://64c11987fa35860bae9ff735.mockapi.io/test', {
+    //     method: 'POST',
+    //     body: formData
+    //   })
+    //   .then(response => response.text())
+    //         .then(imageUrl => {
+                // const shareLink = document.getElementById('shareLink');
+                // shareLink.innerHTML = `<p>Shareable Link: <a href="${imageUrl}" target="_blank">${imageUrl}</a></p>`;
+                // console.log(imageUrl)
+             
+
+            // })
+            // .catch(error => {
+            //     console.error('Error uploading image:', error);
+            // });
+
+         
+
+
+    //   function base64ToBlob(base64String) {
+    //         const byteCharacters = atob(base64String);
+    //         const byteArrays = [];
+    //         for (let offset = 0; offset < byteCharacters.length; offset += 512) {
+    //             const slice = byteCharacters.slice(offset, offset + 512);
+    //             const byteNumbers = new Array(slice.length);
+    //             for (let i = 0; i < slice.length; i++) {
+    //                 byteNumbers[i] = slice.charCodeAt(i);
+    //             }
+    //             const byteArray = new Uint8Array(byteNumbers);
+    //             byteArrays.push(byteArray);
+    //         }
+    //         return new Blob(byteArrays, { type: 'image/png' });
+    //     }
         let mapHoverImages = document.querySelectorAll(".section5 .container div:nth-child(1) img:not(:nth-child(2))")
         let options;
         if (window.matchMedia("(min-width: 1000px)").matches) {
@@ -963,6 +1007,7 @@
         let prec = 0;
         let score = 0;
         let data;
+        let quizUserName;
         async function dataFunc() {
             let resp = fetch('data.json').then(resp => resp.json())
             data = await resp
@@ -1052,7 +1097,7 @@
                   // Send the data to the backend server
                   let quizUserNameInput = document.querySelector("#quizUserName")
                   let quizUserEmailInput = document.querySelector("#quizUserEmail")
-                  let quizUserName = quizUserNameInput.value
+                   quizUserName = quizUserNameInput.value
                   let quizUserEmail = quizUserEmailInput.value
 
                   const data = {
@@ -1060,26 +1105,26 @@
                 email: quizUserEmail
             };
 
-            fetch('https://resend-api.onrender.com', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(responseData => {
-                    // Handle the response from the server if needed
-                    console.log('Server response:', responseData);
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
+            // fetch('https://resend-api.onrender.com', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     },
+            //     body: JSON.stringify(data)
+            // })
+            //     .then(response => {
+            //         if (!response.ok) {
+            //             throw new Error('Network response was not ok');
+            //         }
+            //         return response.json();
+            //     })
+            //     .then(responseData => {
+            //         // Handle the response from the server if needed
+            //         console.log('Server response:', responseData);
+            //     })
+            //     .catch(error => {
+            //         console.error('Error:', error);
+            //     });
             
                 emailInput.parentNode.classList.remove('error');
                 
@@ -1092,6 +1137,22 @@
 
 
         // }
+        })
+
+        shareScore.addEventListener("click", () => {
+            let url='https://karamveer-hub.github.io/nagaland'
+            if (navigator.share) {
+                    navigator.share({
+                    title: `${quizUserName} has scored ${score} in the quiz 'Test Your Knowledge of SDGs and Nagaland' `,
+                    url: `${url}`,
+                }).then(() => {
+                    console.log('Thanks for sharing')
+                })
+                    .catch(console.error)
+            }
+            else {
+                alert('Web Share API not supported in this browser.');
+            }
         })
 
         // whats new hover effect of #div2
