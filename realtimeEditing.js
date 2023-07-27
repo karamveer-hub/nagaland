@@ -1,6 +1,5 @@
 let editBtn=document.querySelector(".editbtn")
 editMode=false;
-
 editBtn.addEventListener("click",()=>{
     if(editMode==false){ editMode=true;
         editBtn.innerText="Edit Mode On"
@@ -13,10 +12,7 @@ editBtn.addEventListener("click",()=>{
 console.log("askla")
 })
 
-
 let aboutUs=document.querySelectorAll(".aboutPage .contentEdit")
-
-
 
 let gettingDataFromLS=JSON.parse(localStorage.getItem("aboutUsPage"))
 if(gettingDataFromLS!=null){
@@ -33,12 +29,10 @@ else{
     localStorage.setItem("aboutUsPage",JSON.stringify(aboutUsPageData))
 }
 
-
     aboutUs.forEach((item,i)=>{
         item.addEventListener("click",()=>{
             if(editMode==true) item.contentEditable=true;
         })
-
         item.addEventListener("input",()=>{
             aboutUsPageData={
                 aboutus:aboutUs[0].innerHTML,

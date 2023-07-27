@@ -409,6 +409,17 @@
     </footer>
 
     <script src="index.js"></script>
+    <script>
+        let contentEdit = document.querySelectorAll(".contentEdit")
+contentEdit.forEach(item => {
+    item.addEventListener("input", (e) => {
+        // Save the edited HTML content into innerText
+        // Add an event listener to save the content when it's being edited
+        e.currentTarget.innerText = e.currentTarget.innerHTML;
+
+    })
+})
+    </script>
     <script src="realtimeEditing.js"></script>
 </body>
 </html>

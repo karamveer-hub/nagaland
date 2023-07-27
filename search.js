@@ -11,7 +11,6 @@ let eventsDiv = document.createElement("div")
 let galleryDiv = document.createElement("div")
 let searchMobDisplayCallingFunction = document.querySelector(".mob-menu-display #searchMobDisplay") //this is here to calling the search funtoi aagain after making the input empty in mobile view
 
-
 searchMobDisplayCallingFunction.children[2].addEventListener("click", () => {
     searchMobDisplay.classList.remove("activate")
     searchMobDisplay.children[1].value=""
@@ -24,7 +23,6 @@ search.addEventListener("input", (e) => {
 searchDesk.addEventListener("input", (e) => {
     searchFunctionality(e.currentTarget.value)
 })
-  
 
  function searchFunctionality(bothSearch){
     for (let i = 2; i < wrapper.length; i++) {
@@ -49,7 +47,6 @@ searchDesk.addEventListener("input", (e) => {
             else {
 
             }
-            // eventsDiv.classList.add("eventsDiv")
             eventsDiv.innerHTML = ` <div class="about container ">
       <div class="aboutSection1">
           <div class="display_flex_col eventsDiv resourcesDiv ">
@@ -87,7 +84,6 @@ searchDesk.addEventListener("input", (e) => {
                             </div>
                             </div>
                             </div>`}
-
             }
              if(mediaSearch.length!=0){
                 Array.from(mediaSearch).forEach(media => {
@@ -101,8 +97,6 @@ searchDesk.addEventListener("input", (e) => {
       </div>`
     }
             else {
-                // string="No Result Found"
-                // about.removeChild(AddresourcesPage)
             }
             galleryDiv.innerHTML = ` <div class=" container ">
       <div class="aboutSection1 ">
@@ -161,28 +155,22 @@ searchDesk.addEventListener("input", (e) => {
                     </div>
                     `
                 addSearchElementsParent.appendChild(eventsDiv)
-
     }
     searchElementContainer.appendChild(addSearchElementsParent)
     wrapper[wrapper.length - 1].style.display = "block"
-
     }
     else {
     searchElementContainer.removeChild(addSearchElementsParent)
-
         if (window.matchMedia("screen and (min-width: 1000px)").matches) {
             for (let i = 0; i < wrapper.length; i++) {
-                // wrapper[i].style.display = "block"
                 wrapper[i].classList.contains("quizBox")? wrapper[i].style.display = "none" : wrapper[i].style.display = "block"
                 console.log("askakdk aagyagygayga")
                 wrapper[0].style.display = "none"
-
             }
         }
         else {
             for (let i = 0; i < wrapper.length; i++) {
                 wrapper[i].classList.contains("quizBox")? wrapper[i].style.display = "none": wrapper[i].style.display = "block"
-                
                 wrapper[0].style.display = "flex"
                 wrapper[1].style.display = "none"
 
