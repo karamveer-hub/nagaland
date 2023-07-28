@@ -17,11 +17,11 @@ searchMobDisplayCallingFunction.children[2].addEventListener("click", () => {
     searchFunctionality("")
 })
 search.addEventListener("input", (e) => {
-    searchFunctionality(e.currentTarget.value)
+    searchFunctionality(e.currentTarget.value.toLowerCase())
 })
 
 searchDesk.addEventListener("input", (e) => {
-    searchFunctionality(e.currentTarget.value)
+    searchFunctionality(e.currentTarget.value.toLowerCase())
 })
 
  function searchFunctionality(bothSearch){
