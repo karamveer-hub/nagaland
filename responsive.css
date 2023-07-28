@@ -509,6 +509,9 @@
             transform: rotate(360deg) scale(1)
         }
     }
+    .section3 .first_div .inner1>div:nth-child(2).activate>div .slimThumbnail p{
+        font-size: 18px;
+    }
 }
 
 @media all and (min-width:1200px) {
@@ -550,7 +553,6 @@
         display: flex
     }
 
-    .section3 .first_div .inner1>div:nth-child(2).activate>div .slimThumbnail p,
     .section4 {
         font-size: 18px
     }
@@ -582,9 +584,7 @@
         height: 45px !important
     }
 
-    .section3 .first_div .inner1>div:nth-child(2).activate>div img {
-        height: 163px !important
-    }
+    
 
     .section3 .second_div {
         width: 35%
@@ -639,7 +639,7 @@
     }
 
     .desktop-menu ul.display_flex li a {
-        padding: 20px 8px
+        padding: 20px 10px
     }
 }
 

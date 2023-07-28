@@ -224,7 +224,7 @@
 
                     </li>
 
-                    <li><a href="aboutSDG.html"><span><img src="images/sdgWhite.svg" class="rotate" alt=""
+                    <li class="font700"><a href="aboutSDG.html"><span><img src="images/sdgWhite.svg" class="rotate" alt=""
                                     style="vertical-align: sub; margin: 0 5px;"></span>SDGs</a><img
                             src="images/Arrow.svg" alt="" class="dropdownli" style="visibility: hidden;">
 
@@ -774,9 +774,21 @@
                             style="color: #0468B1;">Facebook</a> or <a style="color:#0468B1;"
                             href="https://www.instagram.com/sdgccnagaland/?hl=en" target="_blank">Instagram</a></p>
                 </div>
-                <div class="display_flex" style="box-shadow: none;">
+                <div class="display_flex " style="box-shadow: none;">
                     <button class="btn" id="htmltocanvasConvert" style="max-width: 240px;">Download Your Score</button>
                     <button style="max-width: 240px;" class="btn" id="shareScore">Share Your Score</button>
+                    <div class="display_flex" style="max-width: 240px;padding: 10px 30px;"  id="shareScoreSocialIcons" >
+                        <img src="images/whatsapp.svg" alt="Whatsapp icon" width="35px" height="35px" onclick="shareScoreWhatsapp()">
+                        <img src="images/icons8-facebook.svg" alt="Facebook Icon" width="35px" height="35px" onclick="shareScoreFacebook()">
+                        <img src="images/icons8-mail-48.png" alt="Email Icon" width="35px" height="35px" onclick="shareScoreMail()">
+                        <img src="images/icons8-twitter.svg" alt="Twitter Icon" width="35px" height="35px" onclick="shareScoreTwitter()">
+                    </div>
+                    <!-- <a href="https://api.whatsapp.com/send?text=Your score `">
+                        <img src="images/whatsapp.png" height="40px" width="40px" alt="">
+                    </a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://karamveer-hub.github.io/nagaland&t=Hi see my score">
+                        <img src="images/whatsapp.png" height="40px" width="40px" alt="">
+                    </a> -->
                     <!-- AddToAny BEGIN -->
                     <!-- <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
 <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
@@ -787,6 +799,8 @@
 </div>
 <script async src="https://static.addtoany.com/menu/page.js"></script> -->
                     <!-- AddToAny END -->
+
+                    
                 </div>
                 <!-- </a> -->
             </div>
@@ -999,7 +1013,7 @@
         let prec = 0;
         let score = 0;
         let data;
-        let quizUserName;
+     let quizUserName;
         async function dataFunc() {
             let resp = fetch('data.json').then(resp => resp.json())
             data = await resp
@@ -1014,12 +1028,10 @@
             item.addEventListener("click", (e) => {
                 setTimeout(() => {
                     document.querySelectorAll("input[name='ques'").forEach(item => item.checked = false)
-
                 }, 200);
                 if (data[nextQues].ans == e.currentTarget.children[1].value) { score += 10 }
                 //i have added an extra empty ques in json file to solve the issue here at shortest way in second as wehave already a question loaded by default and we want to answer 10 ques but the length is one less in json file so the progress bar stops at 90%
-                nextQues++
-
+                nextQues++;
                 console.log(nextQues)
                 if (nextQues <= data.length) {
                     prec += 10
@@ -1040,7 +1052,7 @@
                 }
                 else {
                 }
-
+                console.log(score)
 
             })
         })
@@ -1070,26 +1082,20 @@
 
             } else {
                 emailError.textContent = '';
-
-               
                 let quizUserNameInput = document.querySelector("#quizUserName")
                 let quizUserEmailInput = document.querySelector("#quizUserEmail")
                 quizUserName = quizUserNameInput.value
                 let quizUserEmail = quizUserEmailInput.value
-
-                const data = {
-                    name: quizUserName,
-                    email: quizUserEmail
-                };
-
-                
-
+                // const data = {
+                //     name: quizUserName,
+                //     email: quizUserEmail
+                // };
                 emailInput.parentNode.classList.remove('error');
-
                 quizQuestionsDisplay.style.display = "none"
                 congratulationDiv.style.display = "none"
                 scoreDiv.children[0].children[0].innerHTML = `<span>${quizUserName}</span> has scored <span>${score}%</span> in the quiz 'Test Your Knowledge of SDGs and Nagaland' <a href="https://www.undp.org/sustainable-development-goals" target="_blank" style="color:#0468B1;">read here</a>`
                 scoreDiv.style.display = "flex"
+                console.log(quizUserName,score)
             }
 
 
@@ -1097,35 +1103,33 @@
             // }
         })
 
-        shareScore.addEventListener("click", () => {
-            shareScoreFunc()
 
-        })
-
-        async function shareScoreFunc() {
-            let text = `${quizUserName} has scored ${score}% in the quiz 'Test Your Knowledge of SDGs and Nagaland'`
-            let url = `https://karamveer-hub.github.io/nagaland`
-            // let files='pdfs/goodPractices/eVIN.pdf'
-            if (navigator.share) {
-                try {
-                    await navigator.share({
-                        text: text,
-                        title: "See my Score",
-                        url: url
-                     
-
-                    });
-                    console.log('Text shared successfully!');
-                } catch (error) {
-                    console.error('Error sharing text:', error);
-                }
-            } else {
-                // Fallback for browsers that don't support navigator.share
-                const fallbackUrl = `mailto:karamveersachdeva3@gmail.com?body=${encodeURIComponent(text)}`;
-                window.location.href = fallbackUrl;
-            }
+        let url='https://karamveer-hub.github.io/nagaland'
+        let text;
+        function shareScoreWhatsapp(){
+            text=`${quizUserName} has scored ${score}% in the quiz 'Test Your Knowledge of SDGs and Nagaland'`
+            const redirect = `https://api.whatsapp.com/send?text=${text}                https://karamveer-hub.github.io/nagaland`;
+            window.open(redirect, '_blank');
         }
+        function shareScoreMail(){
+            text=`${quizUserName} has scored ${score}% in the quiz 'Test Your Knowledge of SDGs and Nagaland'`
+            const redirect = `mailto:?subject=See My Score&body=${text}`;
+            window.open(redirect, '_blank');
+        }
+        function shareScoreFacebook(){
+            text=`${quizUserName} has scored ${score}% in the quiz 'Test Your Knowledge of SDGs and Nagaland'`
+            const redirect = `https://www.facebook.com/sharer/sharer.php?u=${url}&t=${text}`;
+            window.open(redirect, '_blank');
+        }
+        function shareScoreTwitter(){
+            text=`${quizUserName} has scored ${score}% in the quiz 'Test Your Knowledge of SDGs and Nagaland'`
+            const redirect = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
+            window.open(redirect, '_blank');
 
+        }
+        let shareScore=document.querySelector("#shareScore")
+        let shareScoreSocialIcons=document.querySelector("#shareScoreSocialIcons")
+        shareScore.addEventListener("click",()=>{shareScore.style.display="none",shareScoreSocialIcons.style.display="flex"})
         // whats new hover effect of #div2
         let div2 = document.querySelector("#div2")
         let div1 = document.querySelector("#div1")

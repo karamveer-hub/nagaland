@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="display_flex">
+        <img src="images/whatsapp.png" alt="Whatsapp icon" onclick="shareScoreWhatsapp()">
+        <img src="images/icons8-facebook.svg" alt="Facebook Icon" onclick="shareScoreFacebook()">
+        <img src="images/mail.png" alt="Email Icon" onclick="shareScoreMail()">
+        <img src="images/icons8-twitter.svg" alt="Twitter Icon" onclick="shareScoreTwitter()">
+
+    </div>
+
+
+    <script>
+
+let url='https://karamveer-hub.github.io/nagaland'
+let quizUserName="karamveer"
+let score="90%"
+        let text=`${quizUserName} has scored ${score}% in the quiz 'Test Your Knowledge of SDGs and Nagaland'`
+        function shareScoreWhatsapp(){
+            const redirect = `https://api.whatsapp.com/send?text=${text}                https://karamveer-hub.github.io/nagaland`;
+            window.open(redirect, '_blank');
+        }
+        function shareScoreMail(){
+            const redirect = `mailto:?subject=See My Score&body=${text}`;
+            window.open(redirect, '_blank');
+        }
+        function shareScoreFacebook(){
+            const redirect = `https://www.facebook.com/sharer/sharer.php?u=${url}&t=${text}`;
+            window.open(redirect, '_blank');
+
+        }
+        function shareScoreTwitter(){
+            const redirect = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
+            window.open(redirect, '_blank');
+
+        }
+    </script>
+</body>
+</html>
