@@ -12,18 +12,10 @@ let galleryDiv = document.createElement("div")
 let searchMobDisplayCallingFunction = document.querySelector(".mob-menu-display #searchMobDisplay") //this is here to calling the search funtoi aagain after making the input empty in mobile view
 
 searchMobDisplayCallingFunction.children[2].addEventListener("click", () => {
-    if(searchMobDisplayCallingFunction.children[1].value==""){
+   
             searchMobDisplay.classList.remove("activate")
-searchFunctionality("")
-        
-    }
-    else{
-searchFunctionality("")
-
-    }
-    searchMobDisplay.children[1].value=""
- searchMobDisplay.classList.remove("activate")
-    
+searchFunctionality("")  
+    searchMobDisplay.children[1].value="";
 })
 search.addEventListener("input", (e) => {
     searchFunctionality(e.currentTarget.value.toLowerCase())
@@ -34,12 +26,13 @@ searchDesk.addEventListener("input", (e) => {
 })
 
  function searchFunctionality(bothSearch){
-    for (let i = 2; i < wrapper.length; i++) {
-        wrapper[i].style.display = "none"
-    }
+   
     let string = " "
     let string2 = " "
     if (bothSearch != "") {
+         for (let i = 2; i < wrapper.length; i++) {
+        wrapper[i].style.display = "none"
+    }
         if(pdfs.length != 0){
             Array.from(pdfs).forEach(pdf => {
                 if (pdf.children[1].children[1].innerText.toLowerCase().includes(bothSearch)) {
