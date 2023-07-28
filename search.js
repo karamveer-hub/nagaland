@@ -12,9 +12,16 @@ let galleryDiv = document.createElement("div")
 let searchMobDisplayCallingFunction = document.querySelector(".mob-menu-display #searchMobDisplay") //this is here to calling the search funtoi aagain after making the input empty in mobile view
 
 searchMobDisplayCallingFunction.children[2].addEventListener("click", () => {
-    searchMobDisplay.classList.remove("activate")
+    if(searchMobDisplayCallingFunction.children[1].value==""){
+            searchMobDisplay.classList.remove("activate")
+    }
+    else{
+searchFunctionality("")
+
+    }
     searchMobDisplay.children[1].value=""
-    searchFunctionality("")
+ searchMobDisplay.classList.remove("activate")
+    
 })
 search.addEventListener("input", (e) => {
     searchFunctionality(e.currentTarget.value.toLowerCase())
