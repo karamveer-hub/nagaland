@@ -14,6 +14,8 @@ let searchMobDisplayCallingFunction = document.querySelector(".mob-menu-display 
 searchMobDisplayCallingFunction.children[2].addEventListener("click", () => {
     if(searchMobDisplayCallingFunction.children[1].value==""){
             searchMobDisplay.classList.remove("activate")
+searchFunctionality("")
+        
     }
     else{
 searchFunctionality("")
