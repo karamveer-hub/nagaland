@@ -445,7 +445,7 @@
     .section3 .first_div .inner1>div:nth-child(2)>div:nth-child(2) {
         overflow: hidden;
         flex-wrap: wrap;
-        padding: 15px
+        padding: 10px;
     }
 
     .section3 .first_div .inner1>div.activate {
@@ -489,7 +489,13 @@
     .section3 .first_div .inner1>div:nth-child(2).activate>div .slimThumbnail {
         margin: 24px;
         max-width: 293px;
-        height: unset
+        height: unset;
+    }
+    .section3 .first_div .inner1>div:nth-child(2).activate>div .slimThumbnail > img{
+        /* height: 163px !important; */
+    }
+    .section3 .first_div .inner1>div:nth-child(2).activate>div >  img{
+        height: 163px !important;
     }
 
     .section3 .first_div .inner1>div:nth-child(2).activate>div .slimThumbnail .slimThumbnail {
@@ -614,6 +620,9 @@
 
     .section3 .first_div .inner1>div:first-child {
         height: 495px
+    }
+    .section3 .first_div .inner1>div:nth-child(2)>div:nth-child(2) {
+        padding: 15px;
     }
 
     .quizBox .btn {
