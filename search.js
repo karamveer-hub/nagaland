@@ -12,31 +12,35 @@ let galleryDiv = document.createElement("div")
 let searchMobDisplayCallingFunction = document.querySelector(".mob-menu-display #searchMobDisplay") //this is here to calling the search funtoi aagain after making the input empty in mobile view
 
 searchMobDisplayCallingFunction.children[2].addEventListener("click", () => {
-   
-            searchMobDisplay.classList.remove("activate")
-searchFunctionality("")  
-    searchMobDisplay.children[1].value="";
+
+    searchMobDisplay.classList.remove("activate")
+    searchFunctionality("")
+    searchMobDisplay.children[1].value = "";
 })
 search.addEventListener("input", (e) => {
     searchFunctionality(e.currentTarget.value.toLowerCase())
 })
 
 searchDesk.addEventListener("input", (e) => {
+    console.log(e.currentTarget.value.toLowerCase())
     searchFunctionality(e.currentTarget.value.toLowerCase())
 })
 
- function searchFunctionality(bothSearch){
-   
+function searchFunctionality(bothSearch) {
+
     let string = " "
     let string2 = " "
+    console.log(pdfs.length)
+    console.log(mediaSearch.length)
     if (bothSearch != "") {
-         for (let i = 2; i < wrapper.length; i++) {
-        wrapper[i].style.display = "none"
-    }
-        if(pdfs.length != 0){
+        for (let i = 2; i < wrapper.length; i++) {
+            wrapper[i].style.display = "none"
+        }
+        if (pdfs.length != 0) {
+            console.log("pdf")
             Array.from(pdfs).forEach(pdf => {
                 if (pdf.children[1].children[1].innerText.toLowerCase().includes(bothSearch)) {
-                string += `<div class="pdfSearch">
+                    string += `<div class="pdfSearch">
                   <img src="${pdf.children[0].src}" alt="">
                   <div class="display_flex">
                       <a
@@ -45,11 +49,11 @@ searchDesk.addEventListener("input", (e) => {
                       <p class="textBlue font700">${pdf.children[1].children[1].innerText}</p>
                       </div>
                       </div>`
-            }
-            else {
+                }
+                else {
 
-            }
-            eventsDiv.innerHTML = ` <div class="about container ">
+                }
+                eventsDiv.innerHTML = ` <div class="about container ">
       <div class="aboutSection1">
           <div class="display_flex_col eventsDiv resourcesDiv ">
               <h2 class="fontLora">Pdf's</h2>
@@ -67,10 +71,11 @@ searchDesk.addEventListener("input", (e) => {
                   </div>
                   </div>
                   `
-                })
-                if(string!=" ") 
+            })
+            if (string != " ")
                 addSearchElementsParent.appendChild(eventsDiv)
-                else {eventsDiv.innerHTML=` <div class="about container ">
+            else {
+                eventsDiv.innerHTML = ` <div class="about container ">
                 <div class="aboutSection1">
                     <div class="display_flex_col eventsDiv resourcesDiv ">
                         <h2 class="fontLora">Pdf's</h2>
@@ -85,22 +90,27 @@ searchDesk.addEventListener("input", (e) => {
                             </div>
                             </div>
                             </div>
-                            </div>`}
-            }
-             if(mediaSearch.length!=0){
-                Array.from(mediaSearch).forEach(media => {
-            if (media.children[1].children[1].innerText.toLowerCase().includes(bothSearch)) {
-                string2 += `  <div class="display_flex_col mediaSearch" style="position: relative;filter:none;transform:none;background:white;">
+                            </div>`
+                addSearchElementsParent.appendChild(eventsDiv)
+                        
+                        }
+        }
+        if (mediaSearch.length != 0) {
+            console.log("media")
+
+            Array.from(mediaSearch).forEach(media => {
+                if (media.children[1].children[1].innerText.toLowerCase().includes(bothSearch)) {
+                    string2 += `  <div class="display_flex_col mediaSearch" style="position: relative;filter:none;transform:none;background:white;">
           <video src="${media.children[0].src}" controls alt=""></video>
           <div class="display_flex ">
               <img src="images/videoIcon.svg" alt="Video Icon" class="videoPdfIcon">
               <p class="textBlue font700">${media.children[1].children[1].innerText}</p>
               </div>
       </div>`
-    }
-            else {
-            }
-            galleryDiv.innerHTML = ` <div class=" container ">
+                }
+                else {
+                }
+                galleryDiv.innerHTML = ` <div class=" container ">
       <div class="aboutSection1 ">
           <div class="display_flex_col ">
               <h2 class="fontLora">Media's</h2>
@@ -117,10 +127,10 @@ searchDesk.addEventListener("input", (e) => {
                   </div>
                   </div>
                   `
-                })
-                if(string2!=" ")
+            })
+            if (string2 != " ")
                 addSearchElementsParent.appendChild(galleryDiv)
-                else  galleryDiv.innerHTML = ` <div class=" container ">
+            else {galleryDiv.innerHTML = ` <div class=" container ">
                 <div class="aboutSection1 ">
                     <div class="display_flex_col ">
                         <h2 class="fontLora">Media's</h2>
@@ -137,9 +147,13 @@ searchDesk.addEventListener("input", (e) => {
                             </div>
                             </div>
                             `
-    }
-    if(mediaSearch.length ==0 && pdfs.length ==0){
-        eventsDiv.innerHTML = ` <div class="about container ">
+                addSearchElementsParent.appendChild(galleryDiv)
+                        
+                        }
+        }
+        if (mediaSearch.length == 0 && pdfs.length == 0) {
+            console.log("nothing")
+            eventsDiv.innerHTML = ` <div class="about container ">
         <div class="aboutSection1">
             <div class="display_flex_col eventsDiv resourcesDiv ">
                 <h2 class="fontLora">No Results Found</h2>
@@ -156,22 +170,22 @@ searchDesk.addEventListener("input", (e) => {
                     </div>
                     </div>
                     `
-                addSearchElementsParent.appendChild(eventsDiv)
-    }
-    searchElementContainer.appendChild(addSearchElementsParent)
-    wrapper[wrapper.length - 1].style.display = "block"
+            addSearchElementsParent.appendChild(eventsDiv)
+        }
+        searchElementContainer.appendChild(addSearchElementsParent)
+        wrapper[wrapper.length - 1].style.display = "block"
     }
     else {
-    searchElementContainer.removeChild(addSearchElementsParent)
+        searchElementContainer.removeChild(addSearchElementsParent)
         if (window.matchMedia("screen and (min-width: 1000px)").matches) {
             for (let i = 0; i < wrapper.length; i++) {
-                wrapper[i].classList.contains("quizBox")? wrapper[i].style.display = "none" : wrapper[i].style.display = "block"
+                wrapper[i].classList.contains("quizBox") ? wrapper[i].style.display = "none" : wrapper[i].style.display = "block"
                 wrapper[0].style.display = "none"
             }
         }
         else {
             for (let i = 0; i < wrapper.length; i++) {
-                wrapper[i].classList.contains("quizBox")? wrapper[i].style.display = "none": wrapper[i].style.display = "block"
+                wrapper[i].classList.contains("quizBox") ? wrapper[i].style.display = "none" : wrapper[i].style.display = "block"
                 wrapper[0].style.display = "flex"
                 wrapper[1].style.display = "none"
 
